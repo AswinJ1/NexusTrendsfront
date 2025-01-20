@@ -89,12 +89,10 @@ const PostListings = () => {
                                     <div>
                                         <strong className="text-gray-700">Author:</strong> {post.author.username}
                                     </div>
-                                    <Link
-                                        to={`/post/${post.id}`}
-                                        className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg text-sm transition-all"
-                                    >
-                                        Read More
-                                    </Link>
+                                <Link  to={`/post/${post.id}`}
+                                className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg text-sm transition-all">
+                                Read More
+                                </Link>
                                 </div>
                             </div>
                         ))
