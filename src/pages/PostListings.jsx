@@ -13,7 +13,7 @@ const PostListings = () => {
     }, []);
 
     const getPosts = () => {
-        api.get("https://blogapi-qm9m.onrender.com/api/posts/")
+        api.get(`https://blogapi-qm9m.onrender.com/api/posts/${id}/`)
             .then((res) => res.data)
             .then((data) => setPosts(data))
             .catch((err) => alert(err));
