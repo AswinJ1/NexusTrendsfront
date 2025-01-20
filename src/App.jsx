@@ -1,5 +1,5 @@
-import React from 'react'
-import {BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFoundpage from "./pages/NotFoundpage";
@@ -13,46 +13,38 @@ import MyPostpage from './pages/MyPostpage';
 import EditProfile from './pages/EditProfile';
 import ProfileView from './pages/ProfileView';
 
-function Logout(){
-  localStorage.clear()
-  return <Navigate to="/login"/>
+function Logout() {
+  localStorage.clear();
+  return <Navigate to="/login" />;
 }
 
-function RegisterAndLogout(){
-localStorage.clear()
-return <Register/>
-
-
-}
 const App = () => {
   return (
-    <>
     <BrowserRouter>
-    <Routes>
-      <Route path="/"
-      element = {
-       <ProtectedRoute>
-         <HomePage/>
-         </ProtectedRoute>
-      }/>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
 
-      <Route path='/editprofile' element={<EditProfile/>}/>
-      <Route path='/profileview' element={<ProfileView/>}/>
-      <Route path='/postlist' element={<PostListings/>}/>
-      <Route path='/mypostlist' element={<MyPostpage/>}/>
-      <Route path='/post-add' element={<AddPost/>}/>
-      <Route path='/post/:id' element={<Postpage />} />
-      <Route path="/post/update/:id" element={<EditPost />} />
-      <Route  path="/login" element = {<Login />}/>
-      <Route  path="/logout" element = {<Logout />}/>
-      <Route  path="/register" element = {<RegisterAndLogout/>}/>
-      <Route path="*" element={<NotFoundpage/>} />
-
-    </Routes>
-    
+        <Route path='/editprofile' element={<EditProfile />} />
+        <Route path='/profileview' element={<ProfileView />} />
+        <Route path='/postlist' element={<PostListings />} />
+        <Route path='/mypostlist' element={<MyPostpage />} />
+        <Route path='/post-add' element={<AddPost />} />
+        <Route path='/post/:id' element={<Postpage />} />
+        <Route path="/post/update/:id" element={<EditPost />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFoundpage />} />
+      </Routes>
     </BrowserRouter>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
