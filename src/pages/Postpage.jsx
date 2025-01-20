@@ -200,7 +200,6 @@ const PostPage = () => {
                   <div className="text-gray-800 font-bold">{comment.name.username}</div>
                 </div>
                 <div className="text-gray-600">{comment.body}</div>
-                <div className="text-sm text-gray-400">{comment.date_added}</div>
                 <div className="mt-3 flex space-x-4">
                   <button
                     className=""
@@ -239,7 +238,6 @@ const PostPage = () => {
                 </div>
               </div>
               <div className="text-gray-600 mt-1">{reply.body}</div>
-              <div className="text-sm text-gray-400">{reply.date_added}</div>
             </div>
           ))}
         </div>
