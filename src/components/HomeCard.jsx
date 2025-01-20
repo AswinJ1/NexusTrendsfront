@@ -13,8 +13,11 @@ function HomeCard() {
           Dive into the latest trends shaping defense, medical, IT, and more!
 
           </p>
-           <Link  to={`/post/${post.id}`} className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg text-sm transition-all" >
-           Read More
+          <Link
+            to="/postlist"
+            className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
+          >
+            Browse Posts
           </Link>
        </Card>
        <Card bg='bg-indigo-100'>
