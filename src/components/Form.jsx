@@ -12,20 +12,25 @@ function Form({ route, method }) {
   const name = method === "login" ? "Login" : "Register";
 
   const handleSubmit = async (e) => {
-    setLoading(true);
     e.preventDefault();
+    setLoading(true);
 
     try {
       const res = await api.post(route, { username, password });
+
       if (method === "login") {
+        // Save tokens for login
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
         navigate("/");
       } else {
+        // Redirect to login page after registration
+        alert("Registration successful!");
         navigate("/login");
       }
     } catch (error) {
-      alert(error);
+      console.error("Error occurred:", error.response?.data || error.message);
+      alert(error.response?.data?.detail || "Something went wrong.");
     } finally {
       setLoading(false);
     }
@@ -86,7 +91,10 @@ function Form({ route, method }) {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              disabled={loading}
+              className={`flex w-full justify-center rounded-md ${
+                loading ? "bg-gray-400" : "bg-indigo-600 hover:bg-indigo-500"
+              } px-3 py-1.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
             >
               {loading ? "Loading..." : name}
             </button>
