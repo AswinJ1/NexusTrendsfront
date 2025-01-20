@@ -14,37 +14,33 @@ import EditProfile from './pages/EditProfile';
 import ProfileView from './pages/ProfileView';
 
 function Logout() {
-  localStorage.clear();
-  return <Navigate to="/login" />;
+    localStorage.clear();
+    return <Navigate to="/login" />;
 }
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <HomePage />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route path='/editprofile' element={<EditProfile />} />
-        <Route path='/profileview' element={<ProfileView />} />
-        <Route path='/postlist' element={<PostListings />} />
-        <Route path='/mypostlist' element={<MyPostpage />} />
-        <Route path='/post-add' element={<AddPost />} />
-        <Route path='/post/:id' element={<Postpage />} />
-        <Route path="/post/update/:id" element={<EditPost />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFoundpage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={
+                    <ProtectedRoute>
+                        <HomePage />
+                    </ProtectedRoute>
+                } />
+                <Route path="/editprofile" element={<EditProfile />} />
+                <Route path="/profileview" element={<ProfileView />} />
+                <Route path="/postlist" element={<PostListings />} />
+                <Route path="/mypostlist" element={<MyPostpage />} />
+                <Route path="/post-add" element={<AddPost />} />
+                <Route path="/post/:id" element={<Postpage />} />
+                <Route path="/post/update/:id" element={<EditPost />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/logout" element={<Logout />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="*" element={<NotFoundpage />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
