@@ -20,7 +20,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = () => {
       api
-        .get(`https://blogapi-qm9m.onrender.com/api/posts/${id}/`)
+        .get(`/api/posts/${id}/`)
         .then((res) => {
           setPost(res.data);
           setLoading(false);
@@ -61,7 +61,7 @@ const EditPost = () => {
     }
 
     api
-      .put(`https://blogapi-qm9m.onrender.com/api/posts/update/${id}/`, formData, {
+      .put(`/api/posts/update/${id}/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

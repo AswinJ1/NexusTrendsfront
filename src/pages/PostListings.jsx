@@ -13,7 +13,7 @@ const PostListings = () => {
     }, []);
 
     const getPosts = () => {
-        api.get("https://blogapi-qm9m.onrender.com/api/posts/")
+        api.get("/api/posts/")
             .then((res) => res.data)
             .then((data) => setPosts(data))
             .catch((err) => alert(err));
@@ -90,7 +90,7 @@ const PostListings = () => {
                                         <strong className="text-gray-700">Author:</strong> {post.author.username}
                                     </div>
                                     <Link
-                                        to={`https://blogapi-qm9m.onrender.com/post/${post.id}`}
+                                        to={`/post/${post.id}`}
                                         className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg text-sm transition-all"
                                     >
                                         Read More

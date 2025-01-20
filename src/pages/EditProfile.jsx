@@ -22,7 +22,7 @@ const EditProfile = () => {
 
   const fetchProfile = () => {
     api
-      .get("https://blogapi-qm9m.onrender.com/api/profile/") // Fetch the profile data
+      .get("/api/profile/") // Fetch the profile data
       .then((res) => {
         if (res.data.length > 0) {
           setProfile(res.data[0]); // Assuming only one profile per user
@@ -56,7 +56,7 @@ const EditProfile = () => {
     if (profile.id) {
       // Update existing profile
       api
-        .patch(`https://blogapi-qm9m.onrender.com/api/profile/update/${profile.id}/`, formData, {
+        .patch(`/api/profile/update/${profile.id}/`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -73,7 +73,7 @@ const EditProfile = () => {
     } else {
       // Create new profile
       api
-        .post(`https://blogapi-qm9m.onrender.com/api/profile/`, formData, {
+        .post(`/api/profile/`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

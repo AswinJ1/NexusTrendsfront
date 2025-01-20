@@ -13,7 +13,7 @@ const PostFilterCategory = () => {
     }, []);
 
     const getPosts = () => {
-        api.get("https://blogapi-qm9m.onrender.com/api/posts/")
+        api.get("/api/posts/")
             .then((res) => res.data)
             .then((data) => setPosts(data))
             .catch((err) => alert(err));

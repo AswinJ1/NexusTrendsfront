@@ -14,7 +14,7 @@ const MyPostpage = () => {
 
     const getPosts = () => {
         api
-            .get("https://blogapi-qm9m.onrender.com/api/myposts/")
+            .get("/api/myposts/")
             .then((res) => res.data)
             .then((data) => {
                 setPosts(data);
