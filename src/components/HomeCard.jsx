@@ -14,7 +14,7 @@ function HomeCard() {
 
           </p>
           <Link
-            to="https://blogapi-qm9m.onrender.com/postlist"
+            to="/postlist"
             className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
           >
             Browse Posts
@@ -26,7 +26,7 @@ function HomeCard() {
           Write a guest post and inspire our community!
           </p>
           <Link
-            to="https://blogapi-qm9m.onrender.com/post-add"
+            to="/post-add"
             className="inline-block bg-indigo-500 text-white rounded-lg px-4 py-2 hover:bg-indigo-600"
           >
             Submit a Post
