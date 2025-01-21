@@ -12,7 +12,7 @@ const ProfileView = () => {
 
   const fetchProfile = () => {
     api
-      .get("https:/com/blogapi-qm9m.onrender.https://blogapi-qm9m.onrender.com/api/profile/")
+      .get("https://blogapi-qm9m.onrender.com/api/profile/")
       .then((res) => {
         if (res.data.length > 0) {
           setProfile(res.data[0]); // Assuming only one profile per user
