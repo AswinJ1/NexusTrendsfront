@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import api from "../api";
+import api from "../api"; // Assuming this is set up correctly to use VITE_API_URL
 
 const ProfileView = () => {
   const [profile, setProfile] = useState(null);
@@ -12,7 +12,7 @@ const ProfileView = () => {
 
   const fetchProfile = () => {
     api
-      .get("https://blogapi-qm9m.onrender.com/api/profile/")
+      .get(`${import.meta.env.VITE_API_URL}/api/profile/`)
       .then((res) => {
         if (res.data.length > 0) {
           setProfile(res.data[0]); // Assuming only one profile per user
