@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import api from "../api";
+import api from "..api";
 import Navigationpage from '../components/Navigationpage';
 
 const MyPostpage = () => {
@@ -14,7 +14,7 @@ const MyPostpage = () => {
 
     const getPosts = () => {
         api
-            .get("/api/myposts/")
+            .get("https://blogapi-qm9m.onrender.com/api/myposts/")
             .then((res) => res.data)
             .then((data) => {
                 setPosts(data);

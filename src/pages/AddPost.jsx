@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import api from "../api"
+import api from "..api"
 import Navigationpage from '../components/Navigationpage';
 const AddPost = () => {
     const [posts,setPosts] =useState([]);
@@ -13,7 +13,7 @@ const AddPost = () => {
     },[])
    const getPosts = () =>{
     api
-       .get("/api/posts/")
+       .get("https://blogapi-qm9m.onrender.com/api/posts/")
        .then((res) => res.data)
        .then((data) => { setPosts(data); console.log(data)})
        .catch((err) => alert(err));
@@ -25,7 +25,7 @@ const AddPost = () => {
 
     api
 
-       .delete(`/api/posts/delete/${id}`)
+       .delete(`https://blogapi-qm9m.onrender.com/api/posts/delete/${id}`)
        .then((res) => {
         if (res.status === 204) alert("Post deleted!");
         else alert("Failed to delete post.");
@@ -48,7 +48,7 @@ const AddPost = () => {
     }
 
     api
-        .post("/api/posts/", formData, {
+        .post("https://blogapi-qm9m.onrender.com/api/posts/", formData, {
             headers: {
                 "Content-Type": "multipart/form-data", // Set proper header for file uploads
             },

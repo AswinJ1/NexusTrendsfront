@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import api from '../api'; // Your Axios API instance
+import api from '..api'; // Your Axios API instance
 import { toast } from 'react-toastify';
 
 const EditPost = () => {
@@ -20,7 +20,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = () => {
       api
-        .get(`/api/posts/${id}/`)
+        .get(`https://blogapi-qm9m.onrender.com/api/posts/${id}/`)
         .then((res) => {
           setPost(res.data);
           setLoading(false);
@@ -61,7 +61,7 @@ const EditPost = () => {
     }
 
     api
-      .put(`/api/posts/update/${id}/`, formData, {
+      .put(`https://blogapi-qm9m.onrender.com/api/posts/update/${id}/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

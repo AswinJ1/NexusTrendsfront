@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-import api from '../api'; // Assuming you have an axios instance configured
+import api from '..api'; // Assuming you have an axios instance configured
 import { Switch } from "@material-tailwind/react";
 
 
@@ -14,7 +14,7 @@ const Navigationpage = () => {
   // Fetch user's profile data on component mount
   useEffect(() => {
     api
-      .get('/api/profile/') // Adjust the endpoint if necessary
+      .get('https://blogapi-qm9m.onrender.com/api/profile/') // Adjust the endpoint if necessary
       .then((response) => {
         if (response.data.length > 0) {
           const profileData = response.data[0]; // Assuming a single profile per user

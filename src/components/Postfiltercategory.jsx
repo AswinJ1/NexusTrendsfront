@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import api from "../api";
+import api from "..api";
 
 const PostFilterCategory = () => {
     const [posts, setPosts] = useState([]);
@@ -13,7 +13,7 @@ const PostFilterCategory = () => {
     }, []);
 
     const getPosts = () => {
-        api.get("/api/posts/")
+        api.get("https://blogapi-qm9m.onrender.com/api/posts/")
             .then((res) => res.data)
             .then((data) => setPosts(data))
             .catch((err) => alert(err));

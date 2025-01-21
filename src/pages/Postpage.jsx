@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import api from '../api'; // Your Axios API instance
+import api from '..api'; // Your Axios API instance
 import { toast } from 'react-toastify';
 import Navigationpage from '../components/Navigationpage';
 
@@ -17,7 +17,7 @@ const PostPage = () => {
   useEffect(() => {
     const fetchPost = () => {
       api
-        .get(`/api/posts/${id}/`)
+        .get(`https://blogapi-qm9m.onrender.com/api/posts/${id}/`)
         .then((res) => {
           setPost(res.data);
           setLoading(false);
@@ -35,7 +35,7 @@ const PostPage = () => {
   useEffect(() => {
     const fetchComments = () => {
       api
-        .get(`/api/comments/?post=${id}`) // Fetch comments related to this post
+        .get(`https://blogapi-qm9m.onrender.com/api/comments/?post=${id}`) // Fetch comments related to this post
         .then((res) => {
           setComments(res.data);
         })
@@ -53,7 +53,7 @@ const PostPage = () => {
     if (!confirm) return;
 
     api
-      .delete(`/api/posts/delete/${post.id}/`) // Add the trailing slash here
+      .delete(`https://blogapi-qm9m.onrender.com/api/posts/delete/${post.id}/`) // Add the trailing slash here
       .then((res) => {
         if (res.status === 204) {
           toast.success('Post deleted successfully');
@@ -83,7 +83,7 @@ const PostPage = () => {
     };
 
     api
-      .post('/api/comments/', commentData)
+      .post('https://blogapi-qm9m.onrender.com/api/comments/', commentData)
       .then((res) => {
         toast.success('Comment posted successfully');
         setNewComment(''); // Clear the comment field
@@ -111,7 +111,7 @@ const PostPage = () => {
     if (!confirm) return;
 
     api
-      .delete(`/api/comments/${id}/delete/`)
+      .delete(`https://blogapi-qm9m.onrender.com/api/comments/${id}/delete/`)
       .then(() => {
         toast.success('Comment deleted successfully');
         setComments((prevComments) =>
