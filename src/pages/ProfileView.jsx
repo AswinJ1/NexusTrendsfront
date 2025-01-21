@@ -11,20 +11,20 @@ const ProfileView = () => {
   }, []);
 
   const fetchProfile = () => {
-    api
-      .get("https://blogapi-qm9m.onrender.com/api/profile/")
-      .then((res) => {
-        if (res.data.length > 0) {
-          setProfile(res.data[0]); // Assuming only one profile per user
-        }
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setErrorMessage("Failed to load profile. Please try again.");
-        setLoading(false);
-      });
-  };
+     api
+       .get("https://blogapi-qm9m.onrender.com/api/profile/") // Fetch the profile data
+       .then((res) => {
+         if (res.data.length > 0) {
+           setProfile(res.data[0]); // Assuming only one profile per user
+         }
+         setLoading(false);
+       })
+       .catch((err) => {
+         console.error(err);
+         setLoading(false);
+       });
+   };
+   
 
   if (loading) {
     return <p>Loading...</p>;
